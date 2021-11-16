@@ -10,7 +10,7 @@ ap.add_argument("-p", "--percentage", type=int, default=10,
 	help="path to input EAST text detector")
 args = ap.parse_args()
 
-annotation_dir = "data/images"
+annotation_dir = args.annotation
 percentage = args.percentage
 
 print( annotation_dir,percentage)
