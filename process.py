@@ -10,7 +10,7 @@ ap.add_argument("-p", "--percentage", type=int, default=10,
 	help="path to input EAST text detector")
 args = ap.parse_args()
 
-annotation_dir = "Images/mask"
+annotation_dir = "data/images"
 percentage = args.percentage
 
 print( annotation_dir,percentage)
@@ -25,11 +25,11 @@ file_test = open('test.txt', 'w')
 # Populate train.txt and test.txt
 counter = 1
 index_test = round(100 / percentage_test)
-for pathAndFilename in glob.iglob(os.path.join(current_dir, "*.png")):
+for pathAndFilename in glob.iglob(os.path.join(current_dir, "*.jpg")):
     title, ext = os.path.splitext(os.path.basename(pathAndFilename))
     if counter == index_test:
         counter = 1
-        file_test.write(root_dir + "/" + current_dir + "/" + title + '.png' + "\n")
+        file_test.write(root_dir + "/" + current_dir + "/" + title + '.jpg' + "\n")
     else:
-        file_train.write(root_dir + "/" + current_dir + "/" + title + '.png' + "\n")
+        file_train.write(root_dir + "/" + current_dir + "/" + title + '.jpg' + "\n")
         counter = counter + 1
